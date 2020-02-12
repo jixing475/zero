@@ -1,0 +1,21 @@
+---
+title: just to say hi
+author: ZERO
+date: '2020-02-12'
+slug: just-to-say-hi
+categories: []
+tags: []
+description: ''
+topics: []
+---
+
+
+> This Is Just To Say Hi!
+
+![this is for test](/post/2020-02-12-just-to-say-hi_files/2019-12-01Screen Shot-3.png)
+
+```{r}
+library(summarytools)
+dfSummary(iris)  
+```
+

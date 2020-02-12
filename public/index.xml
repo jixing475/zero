@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -31,6 +31,17 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title>just to say hi</title>
+      <link>/post/just-to-say-hi/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/just-to-say-hi/</guid>
+      <description>This Is Just To Say Hi!
+ this is for test
+ library(summarytools) dfSummary(iris)  ## Data Frame Summary ## iris ## N: 150 ## ------------------------------------------------------------------------------------------------------------------------ ## No Variable Stats / Values Freqs (% of Valid) Text Graph Valid Missing ## ---- --------------- -------------------------- -------------------- -------------------------------- -------- --------- ## 1 Sepal.Length mean (sd) : 5.84 (0.83) 35 distinct values . . : : 150 0 ## [numeric] min &amp;lt; med &amp;lt; max : : : : : (100%) (0%) ## 4.</description>
     </item>
     
     <item>
