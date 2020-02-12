@@ -1,31 +1,28 @@
 ---
-date: "2014-04-09"
+date: "2020-02-12"
 description: About me and this site
 sidemenu: "true"
-title: About
+title: Welcome to my page!
 ---
 
-Hugo is a static site engine written in Go.
+![](../static/images/jixing_touxiang.png)
 
+Hi, 我是吉星, 一位由临床专业学生转变为生物信息分析员,接着投向数据科学怀抱的终生学习者。
 
-It makes use of a variety of open source projects including:
+我对机器学习和数据可视化特别感兴趣。虽然我每天都在工作中使用R 和 Python，但我希望有动力定期探索其它类型的分析和数据类型。从数据分析和可视化数据中可以学到的东西是我每天惊喜的源泉！ 
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+> 这世界上永远有两种人，一种如荒火，停留处寸草不生，自衰衰人，自毁毁他。一种如瑞兽，所过之处，水滋土肥，鸟语花香。
 
-Learn more and contribute on [GitHub](https://github.com/spf13).
+我想成为后者!
 
-## Setup
+---
 
-Some fun facts about [Hugo](http://gohugo.io/):
+## 联系我:
+- [Email](mailto:jixing475@163.com)
+- [Github](https://github.com/jixing475)
+- [Twitter](https://twitter.com/studentZero475)
 
-* Built in [Go](http://golang.org/)
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
+-----
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
+Also check out [R-bloggers](http://www.R-bloggers.com) for lots of cool R stuff!
 
-Thanks for reading!
