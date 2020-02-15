@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -31,6 +31,18 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title>量化的定义</title>
+      <link>/post/quantitative-definition/</link>
+      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/quantitative-definition/</guid>
+      <description>  (数据化决策 Douglas W.Hubbard) 第四章 厘清待量化事物和决策的关系:
+ 你们对此进行量化是想解决什么问题?为什么这个量化工作对你们如此重要
+ 从可观测和感知指标的层面定义你需要量化的事物
+ 量化事物之后的价值计算   举列子: 量化 IT 安全  你们对此进项量化是想解决什么问题? 为什么进行这项量化对你们如此重要 IT 安全提高之后看起来应该是什么样子? 如果安全性变好了或更糟了, 我们看到和检测到的东西有什么不同 安全的价值是什么    </description>
     </item>
     
     <item>
