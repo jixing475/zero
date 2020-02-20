@@ -1,0 +1,254 @@
+---
+title: How To Create A Shinydashboard Page Quickly?
+author: ZERO
+date: '2020-02-20'
+slug: how-to-create-a-shinydashboard-page-quickly
+categories:
+  - shiny
+tags:
+  - shinydashboard
+description: ''
+topics: []
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 1
+    number_sections: true
+    fig_width: 6
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#basic-frame"><span class="toc-section-number">1</span> Basic Frame</a></li>
+<li><a href="#add-plot"><span class="toc-section-number">2</span> Add Plot</a></li>
+<li><a href="#select-input"><span class="toc-section-number">3</span> Select Input</a></li>
+<li><a href="#menuitem-and-tabitem"><span class="toc-section-number">4</span> Menuitem And Tabitem</a></li>
+<li><a href="#dt-for-table"><span class="toc-section-number">5</span> DT For Table</a></li>
+<li><a href="#theme"><span class="toc-section-number">6</span> Theme</a></li>
+</ul>
+</div>
+
+<div id="basic-frame" class="section level1">
+<h1><span class="header-section-number">1</span> Basic Frame</h1>
+<pre class="r"><code># pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui &lt;- dashboardPage(
+  dashboardHeader(titile = &quot;My Dashboard&quot;),
+  dashboardSidebar(),
+  dashboardBody()
+)
+
+# server ==============================
+server &lt;- function(input, output){
+  
+}
+
+# run app ==============================
+shinyApp(ui, server)</code></pre>
+</div>
+<div id="add-plot" class="section level1">
+<h1><span class="header-section-number">2</span> Add Plot</h1>
+<ul>
+<li>add <code>box()</code> in ui create you want show element, like plot or table</li>
+<li>then use sever to calculate the element</li>
+</ul>
+<pre class="r"><code># pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui &lt;- dashboardPage(
+  dashboardHeader(title = &quot;My Dashboard&quot;),
+  dashboardSidebar(),
+  dashboardBody(
+    # add a plot
+    box(plotOutput(&quot;correlation_plot&quot;), width = 8)
+  )
+)
+
+# server ==============================
+server &lt;- function(input, output){
+  output$correlation_plot &lt;- renderPlot({
+    plot(iris$Sepal.Length, iris$Petal.Length)
+  })
+}
+
+# run app ==============================
+shinyApp(ui, server)</code></pre>
+</div>
+<div id="select-input" class="section level1">
+<h1><span class="header-section-number">3</span> Select Input</h1>
+<pre class="r"><code># pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui &lt;- dashboardPage(
+  dashboardHeader(title = &quot;My Dashboard&quot;),
+  dashboardSidebar(),
+  dashboardBody(
+    # add a plot
+    box(plotOutput(&quot;correlation_plot&quot;), width = 8),
+    box(
+      selectInput(&quot;feature&quot;, &quot;Feature&quot;, 
+                  c(&quot;Sepal.Length&quot;, &quot;Sepal.Width&quot;, &quot;Petal.Length&quot;, &quot;Petal.Width&quot;, &quot;Species&quot;)), width = 4
+    )
+  )
+)
+
+# server ==============================
+server &lt;- function(input, output){
+  output$correlation_plot &lt;- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+}
+
+# run app ==============================
+shinyApp(ui, server)</code></pre>
+</div>
+<div id="menuitem-and-tabitem" class="section level1">
+<h1><span class="header-section-number">4</span> Menuitem And Tabitem</h1>
+<pre class="r"><code># pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui &lt;- dashboardPage(
+  dashboardHeader(title = &quot;My Dashboard&quot;),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem(&quot;Iris&quot;, tabName = &quot;iris&quot;, icon = icon(&quot;tree&quot;)),
+      menuItem(&quot;Cars&quot;, tabName = &quot;cars&quot;, icon = icon(&quot;car&quot;))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem(&quot;iris&quot;,
+              # add a plot
+              box(plotOutput(&quot;correlation_plot&quot;), width = 8),
+              box(
+                selectInput(&quot;feature&quot;, &quot;Feature&quot;, 
+                            c(&quot;Sepal.Length&quot;, &quot;Sepal.Width&quot;, &quot;Petal.Length&quot;, &quot;Petal.Width&quot;, &quot;Species&quot;)), width = 4
+              )),
+      tabItem(&quot;cars&quot;,
+              fluidPage(
+                h1(&quot;cars&quot;)
+              ))
+    )
+    
+
+    
+  )
+)
+
+# server ==============================
+server &lt;- function(input, output){
+  output$correlation_plot &lt;- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+}
+
+# run app ==============================
+shinyApp(ui, server)</code></pre>
+</div>
+<div id="dt-for-table" class="section level1">
+<h1><span class="header-section-number">5</span> DT For Table</h1>
+<pre class="r"><code># pkg ==============================
+library(shiny)
+library(shinydashboard)
+library(DT)
+# ui ==============================
+ui &lt;- dashboardPage(
+  dashboardHeader(title = &quot;My Dashboard&quot;),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem(&quot;Iris&quot;, tabName = &quot;iris&quot;, icon = icon(&quot;tree&quot;)),
+      menuItem(&quot;Cars&quot;, tabName = &quot;cars&quot;, icon = icon(&quot;car&quot;))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem(&quot;iris&quot;,
+              # add a plot
+              box(plotOutput(&quot;correlation_plot&quot;), width = 8),
+              box(
+                selectInput(&quot;feature&quot;, &quot;Feature&quot;, 
+                            c(&quot;Sepal.Length&quot;, &quot;Sepal.Width&quot;, &quot;Petal.Length&quot;, &quot;Petal.Width&quot;, &quot;Species&quot;)), width = 4
+              )),
+      tabItem(&quot;cars&quot;,
+              fluidPage(
+                h1(&quot;cars&quot;),
+                dataTableOutput(&quot;tableiris&quot;)
+              ))
+    )
+    
+    
+    
+  )
+)
+
+# server ==============================
+server &lt;- function(input, output){
+  output$correlation_plot &lt;- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+  
+  output$tableiris &lt;- renderDataTable(iris)
+}
+
+# run app ==============================
+shinyApp(ui, server)</code></pre>
+</div>
+<div id="theme" class="section level1">
+<h1><span class="header-section-number">6</span> Theme</h1>
+<pre class="r"><code># pkg ==============================
+library(shiny)
+library(semantic.dashboard)
+#[Themes](https://semantic-ui-forest.com/themes/)
+library(DT)
+# ui ==============================
+ui &lt;- dashboardPage(theme = &quot;slate&quot;,
+  dashboardHeader(title = &quot;My Dashboard&quot;),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem(&quot;Iris&quot;, tabName = &quot;iris&quot;, icon = icon(&quot;tree&quot;)),
+      menuItem(&quot;Cars&quot;, tabName = &quot;cars&quot;, icon = icon(&quot;car&quot;))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem(&quot;iris&quot;,
+              # add a plot
+              box(plotOutput(&quot;correlation_plot&quot;), width = 8),
+              box(
+                selectInput(&quot;feature&quot;, &quot;Feature&quot;, 
+                            c(&quot;Sepal.Length&quot;, &quot;Sepal.Width&quot;, &quot;Petal.Length&quot;, &quot;Petal.Width&quot;, &quot;Species&quot;)), width = 4
+              )),
+      tabItem(&quot;cars&quot;,
+              fluidPage(
+                h1(&quot;cars&quot;),
+                dataTableOutput(&quot;tableiris&quot;)
+              ))
+    )
+    
+    
+    
+  )
+)
+
+# server ==============================
+server &lt;- function(input, output){
+  output$correlation_plot &lt;- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+  
+  output$tableiris &lt;- renderDataTable(iris)
+}
+
+# run app ==============================
+shinyApp(ui, server)</code></pre>
+</div>

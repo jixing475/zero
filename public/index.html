@@ -309,6 +309,52 @@ We&rsquo;ll start with creating a new site with a very basic template.
   
     <article>
   <header>
+    <h2><a href="/post/how-to-create-a-shinydashboard-page-quickly/">How To Create A Shinydashboard Page Quickly?</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>20 Feb 2020, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/shinydashboard">shinydashboard</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  1 Basic Frame 2 Add Plot 3 Select Input 4 Menuitem And Tabitem 5 DT For Table 6 Theme   1 Basic Frame # pkg ============================== library(shiny) library(shinydashboard) # ui ============================== ui &lt;- dashboardPage( dashboardHeader(titile = &quot;My Dashboard&quot;), dashboardSidebar(), dashboardBody() ) # server ============================== server &lt;- function(input, output){ } # run app ============================== shinyApp(ui, server)  2 Add Plot  add box() in ui create you want show element, like plot or table then use sever to calculate the element  # pkg ============================== library(shiny) library(shinydashboard) # ui ============================== ui &lt;- dashboardPage( dashboardHeader(title = &quot;My Dashboard&quot;), dashboardSidebar(), dashboardBody( # add a plot box(plotOutput(&quot;correlation_plot&quot;), width = 8) ) ) # server ============================== server &lt;- function(input, output){ output$correlation_plot &lt;- renderPlot({ plot(iris$Sepal.
+  </p>
+
+  
+  <footer>
+    <a href="/post/how-to-create-a-shinydashboard-page-quickly/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="/post/smoking-is-not-in-the-air/">吸口烟并没有升天</a></h2>
 
     <div class="post-meta">

@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.64.1" />
 
-  <title>Tags &middot; Lifelong Learners</title>
+  <title>shinydashboard &middot; Lifelong Learners</title>
 
     
 
@@ -43,7 +43,7 @@
  
   
   <link rel="alternate" type="application/rss+xml" title="Lifelong Learners"
-    href='/tags/index.xml' />
+    href='/tags/shinydashboard/index.xml' />
   
 
   
@@ -110,7 +110,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href='/tags/index.xml'><i
+      <a class="pure-menu-link" href='/tags/shinydashboard/index.xml'><i
           class="fas fa-rss"></i>RSS</a>
     </li>
     
@@ -232,73 +232,57 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>shinydashboard</h1>
 </div>
+
 <div class="content">
-  <ul>
+  
+    <article>
+  <header>
+    <h2><a href="/post/how-to-create-a-shinydashboard-page-quickly/">How To Create A Shinydashboard Page Quickly?</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>20 Feb 2020, 00:00</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="development">development</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="go">go</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="golang">golang</a>
-      <span>&#40;2&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="hugo">hugo</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="plot">plot</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="r-markdown">r-markdown</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/shinydashboard">shinydashboard</a>
+    
+  </div>
   
-    <li>
-      <a href="regression">regression</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="shinydashboard">shinydashboard</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+</div>
+
+  </header>
+
+  <p>
+  1 Basic Frame 2 Add Plot 3 Select Input 4 Menuitem And Tabitem 5 DT For Table 6 Theme   1 Basic Frame # pkg ============================== library(shiny) library(shinydashboard) # ui ============================== ui &lt;- dashboardPage( dashboardHeader(titile = &quot;My Dashboard&quot;), dashboardSidebar(), dashboardBody() ) # server ============================== server &lt;- function(input, output){ } # run app ============================== shinyApp(ui, server)  2 Add Plot  add box() in ui create you want show element, like plot or table then use sever to calculate the element  # pkg ============================== library(shiny) library(shinydashboard) # ui ============================== ui &lt;- dashboardPage( dashboardHeader(title = &quot;My Dashboard&quot;), dashboardSidebar(), dashboardBody( # add a plot box(plotOutput(&quot;correlation_plot&quot;), width = 8) ) ) # server ============================== server &lt;- function(input, output){ output$correlation_plot &lt;- renderPlot({ plot(iris$Sepal.
+  </p>
+
   
-    <li>
-      <a href="smoke">smoke</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <footer>
+    <a href="/post/how-to-create-a-shinydashboard-page-quickly/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
-    <li>
-      <a href="templates">templates</a>
-      <span>&#40;1&#41;</span>
-    </li>
+</article>
+
   
-    <li>
-      <a href="themes">themes</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E9%87%8F%E5%8C%96">量化</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
 </div>
 
 </div>

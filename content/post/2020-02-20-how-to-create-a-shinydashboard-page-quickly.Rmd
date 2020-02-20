@@ -1,0 +1,262 @@
+---
+title: How To Create A Shinydashboard Page Quickly?
+author: ZERO
+date: '2020-02-20'
+slug: how-to-create-a-shinydashboard-page-quickly
+categories:
+  - shiny
+tags:
+  - shinydashboard
+description: ''
+topics: []
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 1
+    number_sections: true
+    fig_width: 6
+---
+
+    
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	eval = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	include = TRUE
+)
+  # Toggle off warning output
+```
+
+# Basic Frame
+```{r}
+# pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui <- dashboardPage(
+  dashboardHeader(titile = "My Dashboard"),
+  dashboardSidebar(),
+  dashboardBody()
+)
+
+# server ==============================
+server <- function(input, output){
+  
+}
+
+# run app ==============================
+shinyApp(ui, server)
+```
+
+# Add Plot
+
++ add `box()` in ui create you want show element, like plot or table
++ then use sever to calculate the element 
+
+```{r}
+# pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui <- dashboardPage(
+  dashboardHeader(title = "My Dashboard"),
+  dashboardSidebar(),
+  dashboardBody(
+    # add a plot
+    box(plotOutput("correlation_plot"), width = 8)
+  )
+)
+
+# server ==============================
+server <- function(input, output){
+  output$correlation_plot <- renderPlot({
+    plot(iris$Sepal.Length, iris$Petal.Length)
+  })
+}
+
+# run app ==============================
+shinyApp(ui, server)
+```
+
+# Select Input
+
+```{r}
+# pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui <- dashboardPage(
+  dashboardHeader(title = "My Dashboard"),
+  dashboardSidebar(),
+  dashboardBody(
+    # add a plot
+    box(plotOutput("correlation_plot"), width = 8),
+    box(
+      selectInput("feature", "Feature", 
+                  c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species")), width = 4
+    )
+  )
+)
+
+# server ==============================
+server <- function(input, output){
+  output$correlation_plot <- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+}
+
+# run app ==============================
+shinyApp(ui, server)
+```
+
+# Menuitem And Tabitem
+
+```{r}
+# pkg ==============================
+library(shiny)
+library(shinydashboard)
+
+# ui ==============================
+ui <- dashboardPage(
+  dashboardHeader(title = "My Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Iris", tabName = "iris", icon = icon("tree")),
+      menuItem("Cars", tabName = "cars", icon = icon("car"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem("iris",
+              # add a plot
+              box(plotOutput("correlation_plot"), width = 8),
+              box(
+                selectInput("feature", "Feature", 
+                            c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species")), width = 4
+              )),
+      tabItem("cars",
+              fluidPage(
+                h1("cars")
+              ))
+    )
+    
+
+    
+  )
+)
+
+# server ==============================
+server <- function(input, output){
+  output$correlation_plot <- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+}
+
+# run app ==============================
+shinyApp(ui, server)
+```
+
+# DT For Table
+```{r}
+# pkg ==============================
+library(shiny)
+library(shinydashboard)
+library(DT)
+# ui ==============================
+ui <- dashboardPage(
+  dashboardHeader(title = "My Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Iris", tabName = "iris", icon = icon("tree")),
+      menuItem("Cars", tabName = "cars", icon = icon("car"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem("iris",
+              # add a plot
+              box(plotOutput("correlation_plot"), width = 8),
+              box(
+                selectInput("feature", "Feature", 
+                            c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species")), width = 4
+              )),
+      tabItem("cars",
+              fluidPage(
+                h1("cars"),
+                dataTableOutput("tableiris")
+              ))
+    )
+    
+    
+    
+  )
+)
+
+# server ==============================
+server <- function(input, output){
+  output$correlation_plot <- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+  
+  output$tableiris <- renderDataTable(iris)
+}
+
+# run app ==============================
+shinyApp(ui, server)
+```
+
+# Theme
+
+```{r}
+# pkg ==============================
+library(shiny)
+library(semantic.dashboard)
+#[Themes](https://semantic-ui-forest.com/themes/)
+library(DT)
+# ui ==============================
+ui <- dashboardPage(theme = "slate",
+  dashboardHeader(title = "My Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Iris", tabName = "iris", icon = icon("tree")),
+      menuItem("Cars", tabName = "cars", icon = icon("car"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem("iris",
+              # add a plot
+              box(plotOutput("correlation_plot"), width = 8),
+              box(
+                selectInput("feature", "Feature", 
+                            c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species")), width = 4
+              )),
+      tabItem("cars",
+              fluidPage(
+                h1("cars"),
+                dataTableOutput("tableiris")
+              ))
+    )
+    
+    
+    
+  )
+)
+
+# server ==============================
+server <- function(input, output){
+  output$correlation_plot <- renderPlot({
+    plot(iris$Sepal.Length, iris[[input$feature]])
+  })
+  
+  output$tableiris <- renderDataTable(iris)
+}
+
+# run app ==============================
+shinyApp(ui, server)
+```
+

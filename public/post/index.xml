@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 15 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -31,6 +31,15 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title>How To Create A Shinydashboard Page Quickly?</title>
+      <link>/post/how-to-create-a-shinydashboard-page-quickly/</link>
+      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-create-a-shinydashboard-page-quickly/</guid>
+      <description>1 Basic Frame 2 Add Plot 3 Select Input 4 Menuitem And Tabitem 5 DT For Table 6 Theme   1 Basic Frame # pkg ============================== library(shiny) library(shinydashboard) # ui ============================== ui &amp;lt;- dashboardPage( dashboardHeader(titile = &amp;quot;My Dashboard&amp;quot;), dashboardSidebar(), dashboardBody() ) # server ============================== server &amp;lt;- function(input, output){ } # run app ============================== shinyApp(ui, server)  2 Add Plot  add box() in ui create you want show element, like plot or table then use sever to calculate the element  # pkg ============================== library(shiny) library(shinydashboard) # ui ============================== ui &amp;lt;- dashboardPage( dashboardHeader(title = &amp;quot;My Dashboard&amp;quot;), dashboardSidebar(), dashboardBody( # add a plot box(plotOutput(&amp;quot;correlation_plot&amp;quot;), width = 8) ) ) # server ============================== server &amp;lt;- function(input, output){ output$correlation_plot &amp;lt;- renderPlot({ plot(iris$Sepal.</description>
     </item>
     
     <item>
